@@ -1,3 +1,4 @@
+Lab1 
 ng
    new (n) Creates a new workspace and an initial Angular app.
    generate (g) Generates and/or modifies files based on a schematic.
@@ -16,8 +17,10 @@ check flow -> index.html, main.ts, app.module, app.component-> html
 ng generate component my 
 --------> check the files generated, modified module file (declarations)
 change app.html to invoke <app-my></app-my>
-
 ------------------
+Lab 2 
+
+
 Create 3 components (form1,form2,form3)
 	ng generate component form1...
 create one service (my)
