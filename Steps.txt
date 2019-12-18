@@ -1,0 +1,66 @@
+ng
+   new (n) Creates a new workspace and an initial Angular app.
+   generate (g) Generates and/or modifies files based on a schematic.
+   serve (s) Builds and serves your app, rebuilding on file changes.
+   
+ng new demo1
+cd demo1
+ng serve
+------------------- http://localhost:4200
+
+check flow -> index.html, main.ts, app.module, app.component-> html
+	modify html
+<h1>In App Component {{title}}</h1>
+
+
+ng generate component my 
+--------> check the files generated, modified module file (declarations)
+change app.html to invoke <app-my></app-my>
+
+------------------
+Create 3 components (form1,form2,form3)
+	ng generate component form1...
+create one service (my)
+	ng generate service my
+------------------------
+Modify MyService
+ export class MyService {
+
+  cnt:number=0
+  constructor() { 
+    console.log("in MyService constructor ...")
+  }
+
+  public incre(){
+    this.cnt++;
+  }
+  public getCnt():number{
+    return this.cnt;
+  }
+}
+-----------------------------
+Modify form*.component.ts
+ constructor(private service:MyService) {
+    console.log("in form2 constructor .." + service)
+   }
+
+  ngOnInit() {
+  }
+  method1(){
+      this.service.incre();
+  }
+
+Modify form*.html
+<input type="button" (click)="method1()" value="Increment " /><br/>
+<h1>{{service.getCnt()}}</h1>
+
+Observe counter
+Modify form2.comp.ts
+@Component({
+  selector: 'app-form2',
+  templateUrl: './form2.component.html',
+  styleUrls: ['./form2.component.css'],
+  providers:[MyService]
+})
+
+
